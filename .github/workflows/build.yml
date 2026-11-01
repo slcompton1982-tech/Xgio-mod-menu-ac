@@ -22,6 +22,11 @@ jobs:
       - name: Setup Android SDK
         uses: android-actions/setup-android@v3
 
+      - name: Verify ANDROID_HOME
+        run: |
+          echo "Android SDK path is: $ANDROID_HOME"
+          echo "sdk.dir=$ANDROID_HOME" > local.properties
+
       - name: Build APK with Gradle
         run: |
           chmod +x gradlew
