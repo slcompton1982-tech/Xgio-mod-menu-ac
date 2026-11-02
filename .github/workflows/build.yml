@@ -1,3 +1,4 @@
+
 name: Build Android APK
 
 on:
@@ -20,14 +21,14 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: Setup Android SDK
-        uses: android-actions/setup-android@v3
-
-      - name: Build APK with Global Gradle
+      - name: Build APK with Pre-installed SDK
         env:
           ANDROID_HOME: /usr/local/lib/android/sdk
           ANDROID_SDK_ROOT: /usr/local/lib/android/sdk
         run: |
+          mkdir -p $ANDROID_HOME/licenses
+          echo "24333f8a43b68242afc0706af86f231e0f98dee7" > $ANDROID_HOME/licenses/android-sdk-license
+          echo "d56f5187479451eabf01fb78af6dfcb131a648b0" >> $ANDROID_HOME/licenses/android-sdk-license
           gradle assembleDebug
 
       - name: Upload APK Artifact
