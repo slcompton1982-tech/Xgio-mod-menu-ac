@@ -23,7 +23,7 @@ jobs:
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v3
 
-      - name: Build APK with Global Gradle
+      - name: Generate Wrapper and Build APK
         env:
           ANDROID_HOME: /usr/local/lib/android/sdk
           ANDROID_SDK_ROOT: /usr/local/lib/android/sdk
@@ -31,7 +31,11 @@ jobs:
           mkdir -p $ANDROID_HOME/licenses
           echo "24333f8a43b68242afc0706af86f231e0f98dee7" > $ANDROID_HOME/licenses/android-sdk-license
           echo "d56f5187479451eabf01fb78af6dfcb131a648b0" >> $ANDROID_HOME/licenses/android-sdk-license
-          gradle assembleDebug --stacktrace
+          
+          # Generate the gradlew wrapper script automatically if missing
+          gradle wrapper --gradle-version 8.5
+          chmod +x gradlew
+          ./gradlew assembleDebug --stacktrace
 
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
