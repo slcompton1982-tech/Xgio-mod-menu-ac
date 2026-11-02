@@ -23,15 +23,13 @@ jobs:
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v3
 
-      - name: Build APK with Gradle
+      - name: Build APK with Wrapper
         env:
           ANDROID_HOME: /usr/local/lib/android/sdk
           ANDROID_SDK_ROOT: /usr/local/lib/android/sdk
         run: |
-          mkdir -p $ANDROID_HOME/licenses
-          echo "24333f8a43b68242afc0706af86f231e0f98dee7" > $ANDROID_HOME/licenses/android-sdk-license
-          echo "d56f5187479451eabf01fb78af6dfcb131a648b0" >> $ANDROID_HOME/licenses/android-sdk-license
-          gradle assembleDebug
+          chmod +x gradlew || true
+          ./gradlew assembleDebug --info --stacktrace
 
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
@@ -41,4 +39,3 @@ jobs:
             app/build/outputs/apk/**/*.apk
             build/outputs/apk/**/*.apk
           if-no-files-found: error
-
