@@ -1,22 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#121212"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:gravity="center">
 
-    <application
-        android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="Mibox AI"
-        android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
-        
-        <activity
-            android:name=".MainActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-    </application>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mibox AI"
+        android:textColor="#00FFCC"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp" />
 
-</manifest>
+    <TextView
+        android:id="@+id/txtUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="User: Mibox"
+        android:textColor="#AAAAAA"
+        android:textSize="16sp"
+        android:layout_marginBottom="32dp" />
+
+    <Button
+        android:id="@+id/btnToggle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Toggle Mod: OFF"
+        android:backgroundTint="#333333"
+        android:textColor="#FFFFFF"
+        android:padding="16dp" />
+
+</LinearLayout>
