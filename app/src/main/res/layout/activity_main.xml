@@ -1,15 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
-    android:orientation="vertical">
+    android:background="#121212"
+    android:padding="20dp">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="XGIO Free Mod Menu"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
 
-</LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mibox AI"
+            android:textColor="#00FFCC"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="4dp" />
+
+        <TextView
+            android:id="@+id/txtUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="User: Mibox"
+            android:textColor="#AAAAAA"
+            android:textSize="14sp"
+            android:layout_marginBottom="24dp" />
+
+        <Button
+            android:id="@+id/btnToggleMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Toggle EIC Spawn Overlay: OFF"
+            android:backgroundTint="#333333"
+            android:textColor="#FFFFFF"
+            android:layout_marginBottom="20dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="EIC Item Spawner"
+            android:textColor="#00FFCC"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="12dp" />
+
+        <Button
+            android:id="@+id/btnSpawnScrap"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Spawn All Scrap Items ($0)"
+            android:backgroundTint="#1E1E1E"
+            android:textColor="#00FFCC"
+            android:layout_marginBottom="10dp" />
+
+        <Button
+            android:id="@+id/btnSpawnFlashlight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Spawn Pro Flashlight"
+            android:backgroundTint="#1E1E1E"
+            android:textColor="#FFFFFF"
+            android:layout_marginBottom="10dp" />
+
+        <Button
+            android:id="@+id/btnSpawnJetpack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Spawn Jetpack"
+            android:backgroundTint="#1E1E1E"
+            android:textColor="#FFFFFF"
+            android:layout_marginBottom="10dp" />
+
+    </LinearLayout>
+</ScrollView>
